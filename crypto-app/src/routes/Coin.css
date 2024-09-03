@@ -1,0 +1,54 @@
+
+.coin-heading
+{
+  display : flex;
+  justify-content : space-between;
+  align-items : center;
+  background-color : #242421;
+  box-shadow : 0px 0px 12px #18191b;
+  border-radius : 8px;
+  padding : 0.7rem 1rem;
+  margin : 2% 20%;
+  font-weight : 700;
+}
+
+.coin-info
+{
+  display : flex;
+  background-color : #242421;
+  box-shadow : 0px 0px 12px #18191b; 
+  border-radius : 8px;
+  padding : 0.7rem 1rem;
+  margin : 2% 20%;
+  font-weight : 500;
+}
+
+.coin-prices
+{
+  background-color : #242421;
+  box-shadow : 0px 0px 12px #18191b; 
+  border-radius : 8px;
+  padding : 0.7rem 1rem;
+  margin : 2% 20%;
+  font-weight : 500;
+}
+
+.coin-prices h1
+{
+  font-size : 1rem;
+  font-weight : 700;
+  padding-bottom : 2%;
+  padding-top: 1%;
+  margin : 0;
+}
+
+.time
+{
+  font-weight : 700;
+}
+
+.table
+{
+  display : flex;
+  justify-content : space-between;
+}
