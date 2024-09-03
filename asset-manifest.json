@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/coin-watch/static/css/main.b40ba0fc.css",
+    "main.js": "/coin-watch/static/js/main.e191a6b4.js",
+    "index.html": "/coin-watch/index.html",
+    "main.b40ba0fc.css.map": "/coin-watch/static/css/main.b40ba0fc.css.map",
+    "main.e191a6b4.js.map": "/coin-watch/static/js/main.e191a6b4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b40ba0fc.css",
+    "static/js/main.e191a6b4.js"
+  ]
+}
