@@ -1,0 +1,21 @@
+
+.navbar 
+{
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  /* background-color : #403F4C; */
+  font: 1em "Verdana", "Georgia", sans-serif;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.icon 
+{
+  font-size : 2rem;
+  color : #FCCF00
+}
+
+.purple 
+{
+  color : #742bcf
+}
