@@ -74,9 +74,6 @@ const Coin = () => {
           </div>
         </div>
 
-
-
-
       </div>
     </div>
   )
