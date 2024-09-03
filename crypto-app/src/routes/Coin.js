@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import './Coin.css'
 import {useParams} from 'react-router-dom'
+import DOMPurify from 'dompurify'
 
 const Coin = () => {
 
@@ -30,14 +31,20 @@ const Coin = () => {
       </div>
 
       <div className='coin-info'>
-        {coin.description ? <div> {coin.description.en} </div> : null}
+
+        <p dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(coin.description ? coin.description.en : '')
+        }}>
+
+        </p>
+
       </div>
 
       <div className='coin-prices'>
 
-        <h1>
+        <h2>
           The change in price of {coin.name} over time, in US dollars.
-        </h1>
+        </h2>
 
         <div className='table'>
           <div>
