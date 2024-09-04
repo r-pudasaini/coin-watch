@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/coin-watch/static/css/main.b40ba0fc.css",
-    "main.js": "/coin-watch/static/js/main.e191a6b4.js",
+    "main.js": "/coin-watch/static/js/main.579ebd4c.js",
     "index.html": "/coin-watch/index.html",
     "main.b40ba0fc.css.map": "/coin-watch/static/css/main.b40ba0fc.css.map",
-    "main.e191a6b4.js.map": "/coin-watch/static/js/main.e191a6b4.js.map"
+    "main.579ebd4c.js.map": "/coin-watch/static/js/main.579ebd4c.js.map"
   },
   "entrypoints": [
     "static/css/main.b40ba0fc.css",
-    "static/js/main.e191a6b4.js"
+    "static/js/main.579ebd4c.js"
   ]
 }
