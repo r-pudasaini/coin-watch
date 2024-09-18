@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect } from 'react'
 import CoinItem from './CoinItem'
 import Coin from '../routes/Coin'
 import './Coins.css'
@@ -10,27 +10,35 @@ const Coins = (props) =>
 
   const [search, setSearch] = useState("")
   const [coins2show, setCoins2show] = useState(props.coins)
+  const [button, setButton] = useState(false)
 
   const updateSearch = (value) => {
     setSearch(value)
   }
 
   const handleClick = () => {
-    // now when we click the button, we need to parse all the elements in props, and filter the ones that 
-    // do not have the search word within them.
-
-    let arr = props.coins.filter((coin) => coin.id.includes(search) )
-    setCoins2show(arr)
+    setButton(!button)
   }
 
   const handleKey = (event) => {
-    console.log("called the enter handler")
-    console.log(event)
     if (event.key === "Enter")
     {
       handleClick()
     }
   }
+
+  useEffect(() => {
+
+    let arr = props.coins.filter((coin) => coin.id.includes(search))
+
+    if (arr.length > 20)
+    {
+      arr = arr.slice(0, 20)
+    }
+
+    setCoins2show(arr)
+
+  }, [button, props])
 
   return (
     <div className='container'>
