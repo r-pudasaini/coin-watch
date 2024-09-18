@@ -20,8 +20,6 @@ const Coin = () => {
     })
   }, [])
 
-  console.log(coin)
-
   return (
     <div>
       <div className='coin-heading'>
@@ -49,35 +47,35 @@ const Coin = () => {
         <div className='table'>
           <div>
             <p className='time'> 1hr</p>
-            {coin.market_data?.price_change_percentage_1h_in_currency ? <p>${coin.market_data.price_change_percentage_1h_in_currency.usd}</p> : null}
+            {coin.market_data?.price_change_percentage_1h_in_currency ? <p>{coin.market_data.price_change_percentage_1h_in_currency.usd}%</p> : null}
           </div>
 
           <div>
             <p className='time'> 24hr</p>
-            {coin.market_data?.price_change_percentage_24h_in_currency ? <p>${coin.market_data.price_change_percentage_24h_in_currency.usd}</p> : null}
+            {coin.market_data?.price_change_percentage_24h_in_currency ? <p>{coin.market_data.price_change_percentage_24h_in_currency.usd}%</p> : null}
           </div>
 
           <div>
             <p className='time'> 7d </p>
-            {coin.market_data?.price_change_percentage_7d_in_currency ? <p>${coin.market_data.price_change_percentage_7d_in_currency.usd}</p> : null}
+            {coin.market_data?.price_change_percentage_7d_in_currency ? <p>{coin.market_data.price_change_percentage_7d_in_currency.usd}%</p> : null}
           </div>
 
 
           <div>
             <p className='time'> 14d </p>
-            {coin.market_data?.price_change_percentage_14d_in_currency ? <p>${coin.market_data.price_change_percentage_14d_in_currency.usd}</p> : null}
+            {coin.market_data?.price_change_percentage_14d_in_currency ? <p>{coin.market_data.price_change_percentage_14d_in_currency.usd}%</p> : null}
           </div>
 
 
           <div>
             <p className='time'> 30d </p>
-            {coin.market_data?.price_change_percentage_30d_in_currency ? <p>${coin.market_data.price_change_percentage_30d_in_currency.usd}</p> : null}
+            {coin.market_data?.price_change_percentage_30d_in_currency ? <p>{coin.market_data.price_change_percentage_30d_in_currency.usd}%</p> : null}
           </div>
 
 
           <div>
             <p className='time'> 1yr </p>
-            {coin.market_data?.price_change_percentage_1y_in_currency ? <p>${coin.market_data.price_change_percentage_1y_in_currency.usd}</p> : null}
+            {coin.market_data?.price_change_percentage_1y_in_currency ? <p>{coin.market_data.price_change_percentage_1y_in_currency.usd}%</p> : null}
           </div>
         </div>
 

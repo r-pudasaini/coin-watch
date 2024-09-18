@@ -25,7 +25,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Coins coins={coins} />} />
-        <Route path='/coin' element={<Coin/>}>
+        <Route path='/coin-watch' element={<Coins coins={coins} />} />
+        <Route path='/coin-watch' element={<Coin/>}>
           <Route path=':coinId' element={<Coin />} />
         </Route>
 
