@@ -23,6 +23,15 @@ const Coins = (props) =>
     setCoins2show(arr)
   }
 
+  const handleKey = (event) => {
+    console.log("called the enter handler")
+    console.log(event)
+    if (event.key === "Enter")
+    {
+      handleClick()
+    }
+  }
+
   return (
     <div className='container'>
       <div>
@@ -31,6 +40,7 @@ const Coins = (props) =>
             placeholder="Search for a coin..."
             value={search}
             onChange={(e) => updateSearch(e.target.value) }
+            onKeyPress={(e) => handleKey(e)}
           />
 
           <FaSearch
