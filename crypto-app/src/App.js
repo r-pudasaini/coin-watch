@@ -9,7 +9,12 @@ import Coin from './routes/Coin'
 function App() {
 
   const [coins, setCoins] = useState([])
-  const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=20'
+  const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=250'
+
+
+  // 1. query every single coin that coingecko has
+  // 2. pass the result of that query into the Coins element
+
 
   useEffect(() =>
   {
