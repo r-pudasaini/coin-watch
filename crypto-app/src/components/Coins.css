@@ -63,3 +63,42 @@ img
     display : none;
   }
 }
+
+
+.input-wrapper {
+  display : flex;
+  background : white;
+  border-radius : 20px;
+  height : max-content;
+  align-items : center;
+  justify-content : center;
+
+  margin : 2% 10%;
+  height : 100%;
+}
+
+
+#search-icon {
+  color : black;
+  font-size : 1.25rem;
+}
+
+#search-icon:hover {
+  cursor : pointer;
+}
+
+.input-wrapper input {
+  margin-left : 1%;
+  background-color : transparent;
+  border : none;
+  height : 100%;
+  width : 93%;
+  font-size : 1.25rem;
+  padding : 0.5rem 0rem;
+}
+
+
+.input-wrapper input:focus {
+  outline : none;
+}
+
