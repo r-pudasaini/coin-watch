@@ -11,6 +11,8 @@ import { FiChevronsLeft, FiChevronLeft, FiChevronRight, FiChevronsRight  } from 
 const Coins = (props) =>
 {
 
+  let allPages = 100
+
   const [coins, setCoins] = useState([])
   const [search, setSearch] = useState("")
   const [button, setButton] = useState(false)
@@ -67,7 +69,7 @@ const Coins = (props) =>
 
           <div className="elements-per-page">
             <div className="elements-view"> 
-              Showing {coinsPerPage} per-page
+              Showing <span>{coinsPerPage}</span> coins per-page
                 <ul className="elements-dropdown">
                   <li> 5 </li>
                   <li> 10 </li>
@@ -80,10 +82,17 @@ const Coins = (props) =>
 
           <div className="change-page-number">
             <FiChevronsLeft />
-            <FiChevronLeft />
-            {pageNum}
-            <FiChevronRight/>
-            <FiChevronsRight/>
+            <FiChevronLeft className="margin-image"/>
+
+            <input
+              placeholder={pageNum + "/" + allPages}
+              value={search}
+              onChange={(e) => updateSearch(e.target.value) }
+              onKeyPress={(e) => handleKey(e)}
+            />
+
+            <FiChevronRight className="margin-image"/>
+            <FiChevronsRight className="margin-image"/>
           </div>
 
         </div>
