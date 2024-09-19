@@ -102,3 +102,48 @@ img
   outline : none;
 }
 
+
+.pagination {
+  display : flex;
+  align-items : center;
+}
+
+.elements-view {
+  width : max-content;
+}
+
+.elements-per-page {
+  margin-left : 1rem;
+}
+
+.change-page-number {
+  margin-left : auto;
+  margin-right : 1rem;
+}
+
+.elements-dropdown {
+  display:none;
+  position:absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  list-style-type : none;
+  padding : 0.5rem 2rem;
+  background-color : #242421;
+  border-radius : 20px;
+  float : right;
+}
+
+.elements-dropdown li {
+  padding-top : 0.25rem;
+}
+
+.elements-dropdown li:hover {
+  color : red;
+  cursor : pointer;
+}
+
+.elements-view:hover .elements-dropdown {
+  display : block;
+  float : left;
+  cursor : pointer;
+}
+
