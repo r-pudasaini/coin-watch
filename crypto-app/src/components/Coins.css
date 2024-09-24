@@ -112,6 +112,9 @@ img
 
 .elements-view {
   width : 100%;
+  height : 100%;
+  justify-content : center;
+  align-items : center;
 }
 
 .elements-per-page {
@@ -126,11 +129,11 @@ img
   height : max-content;
 }
 
-.change-page-number * {
-  font-size : 1.25rem;
-  border-style : solid;
-  border-width : thin;
+.chev {
+  font-size : 2rem;
+  font-weight : 900;
   height : 100%;
+  cursor : pointer;
 }
 
 .change-page-number input {
@@ -139,6 +142,7 @@ img
   text-align : center;
   color : white;
   width : max-content;
+  font-size : 1.05rem;
 }
 
 .change-page-number input::placeholder {
@@ -166,15 +170,19 @@ img
   padding : 0.5rem 2rem;
   background-color : #242421;
   border-radius : 20px;
-  float : right;
   text-align : center;
+  margin-left : 1.2%;
 }
 
 .elements-dropdown li {
   padding-top : 0.25rem;
+  display : block;
 }
 
 .elements-view:hover {
+  margin: 0;
+  padding: 0;
+  text-align: center;
   cursor : pointer;
 }
 
@@ -190,6 +198,8 @@ img
 }
 
 .elements-view span {
+  text-align : center;
+  justify-content : center;
   font-weight : 900;
 }
 
