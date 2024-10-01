@@ -194,8 +194,34 @@ img
   font-weight : 900;
 }
 
-
-.margin-image {
-  margin-left : 0.25rem;
+.buttons {
+  display : flex;
 }
 
+#load-more-button {
+  margin : 2rem 1rem;
+  padding : 0.7rem 1rem;
+  box-shadow : 0px 0px 12px #18191b;
+  width : max-content;
+  border-radius : 20px;
+  font-weight : bold;
+}
+
+#load-less-button {
+  margin : 2rem 1rem;
+  padding : 0.7rem 1rem;
+  box-shadow : 0px 0px 12px #18191b;
+  width : max-content;
+  border-radius : 20px;
+  font-weight : bold;
+}
+
+#load-more-button:hover {
+  cursor : pointer;
+  color : lightblue;
+}
+
+#load-less-button:hover {
+  cursor : pointer;
+  color : lightblue;
+}

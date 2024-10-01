@@ -12,10 +12,6 @@ function App() {
   const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=250'
 
 
-  // 1. query every single coin that coingecko has
-  // 2. pass the result of that query into the Coins element
-
-
   useEffect(() =>
   {
       axios.get(url).then((response) => {
@@ -29,7 +25,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Coins coins={coins} />} />
+        <Route path='/' element={<Coins coins={coins} maxCoins={250} />} />
         <Route path='/coin-watch' element={<Coins coins={coins} />} />
         <Route path='/coin-watch' element={<Coin/>}>
           <Route path=':coinId' element={<Coin />} />
