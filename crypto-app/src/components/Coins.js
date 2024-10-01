@@ -6,10 +6,8 @@ import '../index.css'
 import {Link} from 'react-router-dom'
 import {FaSearch} from 'react-icons/fa'
 
-
-const INCREMNT = 5 
-const MAX_COINS = 250 
-const MIN_COINS = 2
+const INCREMNT = 20
+const MIN_COINS = 10
 
 const Coins = (props) =>
 {
@@ -28,11 +26,13 @@ const Coins = (props) =>
   }
 
   const handleLoadMoreClick = () => {
-    setNumCoins2show(Math.min(numCoins2show + INCREMNT, MAX_COINS))
+    setNumCoins2show(numCoins2show + INCREMNT)
+    setButton(!button)
   }
 
   const handleLoadLessClick = () => {
-    setNumCoins2show(Math.max(numCoins2show - INCREMNT, MIN_COINS))
+    setNumCoins2show(numCoins2show - INCREMNT)
+    setButton(!button)
   }
 
   const handleSearchEnter = (event) => {
@@ -42,31 +42,24 @@ const Coins = (props) =>
     }
   }
 
-  const setDisabled = (button) => {
-    button.style['background-color'] = 'var(--disabled-background-color)'
-    button.style['color'] = 'grey'
-    button.style['cursor'] = 'default'
+  const setDisabled = (object) => {
+    object.style['background-color'] = 'var(--disabled-background-color)'
+    object.style['color'] = 'grey'
+    object.style['cursor'] = 'default'
   }
 
-  const setEnabled = (button) => {
-    button.style['background-color'] = 'var(--default-background-color)'
-    button.style['color'] = 'var(--default-text-color)'
-    button.style['cursor'] = 'pointer'
-
+  const setEnabled = (object) => {
+    object.style['background-color'] = 'var(--default-background-color)'
+    object.style['color'] = 'var(--default-text-color)'
+    object.style['cursor'] = 'pointer'
   }
 
   useEffect(() => {
 
     let arr = props.coins.filter((coin) => coin.id.includes(search))
+    let toShow =  Math.min(Math.max(numCoins2show, MIN_COINS), arr.length)
 
-    if (arr.length > numCoins2show)
-    {
-      arr = arr.slice(0, numCoins2show)
-    }
-
-    setCoins2show(arr)
-
-    if (numCoins2show >= MAX_COINS)
+    if (toShow === arr.length)
     {
       document.getElementById('load-more-button').onclick = function() {void(0)};
       setDisabled(document.getElementById('load-more-button'))
@@ -77,7 +70,7 @@ const Coins = (props) =>
       setEnabled(document.getElementById('load-more-button'))
     }
 
-    if (numCoins2show <= MIN_COINS)
+    if (toShow <= MIN_COINS)
     {
       document.getElementById('load-less-button').onclick = function() {void(0)};
       setDisabled(document.getElementById('load-less-button'))
@@ -88,7 +81,11 @@ const Coins = (props) =>
       setEnabled(document.getElementById('load-less-button'))
     }
 
-  }, [numCoins2show, button, props])
+    arr = arr.slice(0, toShow)
+    setNumCoins2show(toShow)
+    setCoins2show(arr)
+
+  }, [button, props])
 
 
   return (
@@ -117,6 +114,7 @@ const Coins = (props) =>
           <p className='hide-mobile'>Market Cap</p>
         </div>
 
+
         {coins2show.map(coin => {
             return (
 
@@ -125,7 +123,6 @@ const Coins = (props) =>
               </Link>
             )
         })}
-
 
         <div className="buttons">
 
