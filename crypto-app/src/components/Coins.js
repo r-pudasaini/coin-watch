@@ -2,15 +2,21 @@ import React, {useState, useEffect } from 'react'
 import CoinItem from './CoinItem'
 import Coin from '../routes/Coin'
 import './Coins.css'
+import '../index.css'
 import {Link} from 'react-router-dom'
 import {FaSearch} from 'react-icons/fa'
+
+
+const INCREMNT = 5 
+const MAX_COINS = 250 
+const MIN_COINS = 2
 
 const Coins = (props) =>
 {
 
   const [search, setSearch] = useState("")
   const [coins2show, setCoins2show] = useState(props.coins)
-  const [numCoins2show, setNumCoins2show] = useState(20)
+  const [numCoins2show, setNumCoins2show] = useState(MIN_COINS)
   const [button, setButton] = useState(false)
 
   const updateSearch = (value) => {
@@ -22,11 +28,11 @@ const Coins = (props) =>
   }
 
   const handleLoadMoreClick = () => {
-    setNumCoins2show(Math.min(numCoins2show + 20, props.maxCoins))
+    setNumCoins2show(Math.min(numCoins2show + INCREMNT, MAX_COINS))
   }
 
   const handleLoadLessClick = () => {
-    setNumCoins2show(Math.max(numCoins2show - 20, 20))
+    setNumCoins2show(Math.max(numCoins2show - INCREMNT, MIN_COINS))
   }
 
   const handleSearchEnter = (event) => {
@@ -34,6 +40,19 @@ const Coins = (props) =>
     {
       setButton(!button)
     }
+  }
+
+  const setDisabled = (button) => {
+    button.style['background-color'] = 'var(--disabled-background-color)'
+    button.style['color'] = 'grey'
+    button.style['cursor'] = 'default'
+  }
+
+  const setEnabled = (button) => {
+    button.style['background-color'] = 'var(--default-background-color)'
+    button.style['color'] = 'var(--default-text-color)'
+    button.style['cursor'] = 'pointer'
+
   }
 
   useEffect(() => {
@@ -47,25 +66,30 @@ const Coins = (props) =>
 
     setCoins2show(arr)
 
-    if (numCoins2show >= props.maxNumCoins)
+    if (numCoins2show >= MAX_COINS)
     {
-      document.getElementById('load-more-button').style.display = 'none'
+      document.getElementById('load-more-button').onclick = function() {void(0)};
+      setDisabled(document.getElementById('load-more-button'))
     }
     else
     {
-      document.getElementById('load-more-button').style.display = 'block'
+      document.getElementById('load-more-button').onclick = function() {handleLoadMoreClick()};
+      setEnabled(document.getElementById('load-more-button'))
     }
 
-    if (numCoins2show <= 20)
+    if (numCoins2show <= MIN_COINS)
     {
-      document.getElementById('load-less-button').style.display = 'none'
+      document.getElementById('load-less-button').onclick = function() {void(0)};
+      setDisabled(document.getElementById('load-less-button'))
     }
     else
     {
-      document.getElementById('load-less-button').style.display = 'block'
+      document.getElementById('load-less-button').onclick = function() {handleLoadLessClick()};
+      setEnabled(document.getElementById('load-less-button'))
     }
 
-  }, [numCoins2show, props, button])
+  }, [numCoins2show, button, props])
+
 
   return (
     <div className='container'>
@@ -107,14 +131,12 @@ const Coins = (props) =>
 
           <div
             id="load-less-button"
-            onClick={() => handleLoadLessClick()}
           >
             Load Less
           </div>
 
           <div
             id="load-more-button"
-            onClick={() => handleLoadMoreClick()}
           >
             Load More
           </div>
