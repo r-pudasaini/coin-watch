@@ -124,6 +124,8 @@ const Coins = (props) =>
             )
         })}
 
+        <div className="showing"> Showing {numCoins2show} Coins </div>
+
         <div className="buttons">
 
           <div
@@ -137,8 +139,8 @@ const Coins = (props) =>
           >
             Load More
           </div>
-
         </div>
+
 
       </div>
     </div>
